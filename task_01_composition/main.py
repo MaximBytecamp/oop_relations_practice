@@ -1,7 +1,8 @@
 class OrderItem:
     def __init__(self, title: str, price: float, quantity: int):
-        # TODO: сохранить данные позиции заказа
-        pass
+        self.title = title 
+        self.price = price 
+        self.quantity = quantity
 
     def get_cost(self) -> float:
         # TODO: вернуть стоимость позиции
@@ -14,8 +15,8 @@ class Order:
         self.items = []
 
     def add_item(self, title: str, price: float, quantity: int):
-        # TODO: создать OrderItem внутри заказа и добавить в список
-        pass
+        order = OrderItem(title, price, quantity)
+        self.items.append(order)
 
     def get_total(self) -> float:
         # TODO: посчитать общую сумму
