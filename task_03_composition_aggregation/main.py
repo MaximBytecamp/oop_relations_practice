@@ -21,7 +21,7 @@ class Module:
 
 
 class OnlineCourse:
-    def __init__(self, title: str, teacher: User):
+    def __init__(self, title: str, teacher: User = None):
         self.title = title
         self.teacher = teacher
         self.students = []
