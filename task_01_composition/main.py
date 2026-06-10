@@ -14,22 +14,22 @@ class Order:
         self.items = []
 
     def add_item(self, title: str, price: float, quantity: int):
-        order = OrderItem(title, price, quantity)
-        self.items.append(order)
+        orderitem = OrderItem(title, price, quantity)
+        self.items.append(orderitem) #[OrderItem(blabla, 500, 3), OrderItem(okokm, 1000, 34)]
 
     def get_total(self) -> float:
         total = 0
 
-        for order in self.items:
-            total += order.get_cost()
+        for orderitem in self.items:
+            total += orderitem.get_cost()
 
         return total 
 
     def print_receipt(self):
         print(f"{self.number} - Номер заказа")
 
-        for order in self.items:
-            print(f"{order.title} - {order.get_cost()}")
+        for orderitem in self.items:
+            print(f"{orderitem.title} - {orderitem.get_cost()}")
 
 
 
