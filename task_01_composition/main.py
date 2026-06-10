@@ -5,8 +5,7 @@ class OrderItem:
         self.quantity = quantity
 
     def get_cost(self) -> float:
-        # TODO: вернуть стоимость позиции
-        pass
+        return self.price * self.quantity
 
 
 class Order:
@@ -19,12 +18,18 @@ class Order:
         self.items.append(order)
 
     def get_total(self) -> float:
-        # TODO: посчитать общую сумму
-        pass
+        total = 0
+
+        for order in self.items:
+            total += order.get_cost()
+
+        return total 
 
     def print_receipt(self):
-        # TODO: вывести чек
-        pass
+        print(f"{self.number} - Номер заказа")
+
+        for order in self.items:
+            print(f"{order.title} - {order.get_cost()}")
 
 
 
@@ -33,3 +38,6 @@ order.add_item("Клавиатура", 2500, 1)
 order.add_item("Мышь", 1200, 2)
 order.add_item("Коврик", 700, 1)
 order.print_receipt()
+
+total = order.get_total()
+print(total)
