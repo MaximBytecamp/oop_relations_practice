@@ -5,30 +5,31 @@ class Student:
         self.grades = []
 
     def add_grade(self, grade: int):
-        # TODO: добавить проверку и сохранить оценку
-        pass
+        self.grades.append(grade)
 
     def get_average(self) -> float:
-        # TODO: вернуть средний балл
-        pass
+        print(f"Средний балл студента: {self.first_name}: ")
+        return sum(self.grades) / len(self.grades)
 
 
 class Group:
     def __init__(self, title: str):
         self.title = title
-        self.students = []
+        self.students = [] #Student(max, makarov, [4,5])
 
     def add_student(self, student: Student):
-        # TODO: добавить уже существующего студента
-        pass
+        self.students.append(student)
 
     def get_group_average(self) -> float:
-        # TODO: посчитать средний балл группы
-        pass
+        total_grades_list = []
+        for student in self.students:
+            total_grades_list.extend(student.grades) #[] -> [4,5] -> [4,5].extend([5,5]) -> [4,5,5,5]
+
+        print(f"Средний балл группы: {sum(total_grades_list) / len(self.students)}")
 
     def print_students(self):
-        # TODO: вывести студентов группы
-        pass
+        for student in self.students: 
+            print(f"{student.first_name} {student.last_name} - {student.get_average()}")
 
 
 
@@ -44,3 +45,6 @@ group = Group("ИС-21")
 group.add_student(ivan)
 group.add_student(anna)
 group.print_students()
+
+
+group.get_group_average()
